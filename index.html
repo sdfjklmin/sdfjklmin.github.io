@@ -19,7 +19,7 @@ layout: default
     <!-- This loops through the paginated posts -->
     {% for post in paginator.posts %}
       <li class="card-panel hoverable">
-        <span class="grey-text right">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="grey-text right">{{ post.date | date: "%Y-%m-%d" }}</span>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 
         <!--平铺展示-->
