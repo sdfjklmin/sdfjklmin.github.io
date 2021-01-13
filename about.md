@@ -59,3 +59,8 @@ Email: {{ site.email }}
    
 5. 闻理似悟，遇境则迷。
 
+
+
+
+
+{% include git_talk.html %}
