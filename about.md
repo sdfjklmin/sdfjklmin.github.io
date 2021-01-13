@@ -3,32 +3,53 @@ layout: page
 title: About
 permalink: /about/
 ---
-
-#### Tagline
-
-Your tagline.
-
-#### Introduction
-
-Introduce yourself.
-
-#### This theme
-
-This [jekyll](https://jekyllrb.com) theme is based on [materialize](http://materializecss.com). For more detail, you can view the github repo: [mumuxme/materialize-jekyll](https://github.com/mumuxme/materialize-jekyll)
-
-
-#### License
-
-Copyright&nbsp;&copy;&nbsp;{{ site.author }}
-
-- - -
-
-If any <b>question</b>, please send an <b>email</b> to me or just open an <b>issue</b> on the github repository. 
-
-As for all articles(except reference) are under [CC Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/), you are free to <b>share</b> and <b>adapt</b> for any purpose.
-
-- - -
-
 #### Personal information
 
+Author: {{ site.author }}
+
 Email: {{ site.email }}
+
+#### YanHan Fighting
+
+不管怎样，都不要放弃自己！
+
+一定要有自己的目标，不管是工作的、生活的、学习的或者其他的。
+
+让自己习惯这种状态，保持斗志！！！
+
+
+#### Daily
+
+1. 阅读英语文章
+   
+2. 根据自身的专业知识框架进行扩展和巩固
+   
+3. 3+1锻炼计划
+   
+4. 玩玩游戏，久了也没兴趣
+   
+5. 看看资讯和新闻
+   
+6. 看看人物、传记、哲学、书籍
+   
+7. 知识点、学习、事情等，争取做到看懂了再行动，慢也是快
+   
+8. 做到心中有数，清楚自己在做什么，养成先行思考的习惯
+   
+9. 总结归纳，找到适合自己的记忆点、方法、乐趣等
+   
+10. 尝试扩宽自己的眼见和认知。(结合自身条件、环境认知、相关条款和政策)
+
+
+#### Words
+
+1. 山有小口，仿佛若有光。
+   
+2. 憎者惟见其恶，爱者止见其善，善恶之间，所宜详慎。
+   
+3. 喜欢一件事的时候，一定要深入下去，不要浅尝辄止，不要急于一时。
+   
+4. 你长大了，你应该自己去开拓，人生有甜也有苦。
+   
+5. 闻理似悟，遇境则迷。
+
