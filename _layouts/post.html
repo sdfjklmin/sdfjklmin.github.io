@@ -56,11 +56,11 @@ layout: default
 
 <script>
   var gitalk = new Gitalk({
-    clientID: 'c371df439b8a4c058768',
-    clientSecret: 'fc7b8087950adfcc0019d967048edefcff839d37',
-    repo: 'sdfjklmin.github.io.comment',
-    owner: 'sdfjklmin',
-    admin: ['sdfjklmin'],
+    clientID: '{{ site.gitalk.clientID }}',
+    clientSecret: '{{ site.gitalk.clientSecret }}',
+    repo: '{{ site.gitalk.repo }}',
+    owner: '{{ site.gitalk.owner }}',
+    admin: ['{{ site.gitalk.admin }}'],
     id: location.pathname,      // Ensure uniqueness and length less than 50
     distractionFreeMode: false  // Facebook-like distraction free mode
   })
