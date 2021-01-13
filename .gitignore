@@ -1,0 +1,8 @@
+.sass-cache/
+_site
+google-analytics.js
+.env
+.jekyll-cache
+.jekyll-metadata
+.idea/
+vendor
