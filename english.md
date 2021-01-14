@@ -37,12 +37,12 @@ permalink: /english/
 
 <table class="striped">
     <tr>
-        <th>word</th>
-        <th>remark</th>
-        <th>phonetic</th>
-        <th>usage</th>
-        <th>define</th>
-        <th>tags</th>
+        <th>Word</th>
+        <th>Remark</th>
+        <th>Phonetic</th>
+        <th>Usage</th>
+        <th>Define</th>
+        <th>Tags</th>
     </tr>
     <tr>
         <td>amend</td>
