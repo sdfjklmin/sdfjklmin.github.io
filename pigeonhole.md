@@ -3,7 +3,7 @@ layout: page
 title: Pigeonhole
 permalink: /pigeonhole/
 ---
-
+<div class="post-category">
  <ul>
   {% for post in site.posts %}
 
@@ -16,13 +16,12 @@ permalink: /pigeonhole/
         <h2 id="y{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</h2>
       {% endif %}
     {% endunless %}
-
     <li>
-        <time>
-        {{ post.date | date:"%F" }} .
-        </time>
-        <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <h5>
+        {{ post.date | date:"%F" }} >>
+        <a class="category-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h5>
     </li>
-
   {% endfor %}
 </ul>
+</div>
