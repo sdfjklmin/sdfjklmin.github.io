@@ -35,7 +35,7 @@ permalink: /english/
 
 
 
-<table class="striped responsive-table">
+<table class="striped">
     <tr>
         <th>Word</th>
         <th>Remark</th>
