@@ -1,0 +1,36 @@
+---
+layout: page
+title: English Words
+permalink: /english/
+---
+
+<!--<a class="waves-effect waves-light btn">按钮</a>
+<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>按钮</a>
+<a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>按钮</a>
+<a href="?tags" class="btn-floating btn-large waves-effect waves-light red">Add</a>-->
+
+<div class="post-category">
+{% for single in site.data.english %}
+<div class="page-heading">
+    <ul class="collapsible popout" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header favo">
+            <a target="_blank" href="https://translate.google.cn/?sl=en&tl=zh-CN&text={{ single.word }}&op=translate">
+            <i class="mdi mdi-volume-medium left indigo-text text-lighten-3"></i> </a>
+            &nbsp;&nbsp;
+            {{ single.phonetic }}
+            &nbsp;&nbsp;&nbsp;
+            {{ single.word }}
+        </div>
+        <div class="collapsible-body">
+            <p>Remark:  {{ single.remark }}</p>
+            <p>Usage:   {{ single.usage }}</p>
+            <p>Define:  {{ single.define }}</p>
+            <p>Tags:    {{ single.tags }}</p>
+        </div>
+      </li>
+    </ul>
+</div>
+{% endfor %}
+
+</div>

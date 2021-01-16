@@ -1,0 +1,35 @@
+- word: amend
+  remark: 修改，修正，改正
+  phonetic: əˈmend
+  usage: git amend
+  define: 动词
+  tags: git
+
+- word: analyze
+  remark: 分析
+  phonetic: ˈanlˌīz
+  usage: systemd-analyze blame(分析开启启动项)
+  define: 动词
+  tags: linux
+
+- word: anonymous
+  remark: 匿名，无名
+  phonetic: əˈnänəməs
+  usage:
+  define: 形容词
+  tags: words
+
+- word: appear
+  remark: 出现
+  phonetic: əˈpir
+  usage:
+  define: 动词
+  tags: words
+
+- word: atomicity
+  remark: 原子性
+  phonetic: ˌadəˈmisədē
+  usage:
+  define: 名词
+  tags: mysql
+

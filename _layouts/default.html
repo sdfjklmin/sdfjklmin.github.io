@@ -6,6 +6,25 @@
   <body>
 
     <header class="site-header">
+      <script>
+        /*common function*/
+
+        /**
+         *  only one params
+         * @returns {string}
+         */
+        function getParamsOfUrls()
+        {
+          var params = window.location.href.split("?")[1];
+          if(params === undefined) {
+            return '';
+          }else {
+            return params;
+          }
+        }
+        var CurrentParams = getParamsOfUrls();
+      </script>
+
       <nav class="nav-extended {{ site.header-color }}">
         {% include navbar.html %}
 
