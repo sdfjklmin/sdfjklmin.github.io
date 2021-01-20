@@ -9,18 +9,23 @@ permalink: /english/
 <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>按钮</a>
 <a href="?tags" class="btn-floating btn-large waves-effect waves-light red">Add</a>-->
 
+<div><style>button { margin-bottom: 10px; }</style>
+    <button class="waves-effect waves-light btn" onClick="expandAll();"><i class="mdi mdi-chevron-double-down left"></i>Expand</button>
+    <button class="waves-effect waves-light btn" onClick="collapseAll();"><i class="mdi mdi-chevron-double-up left"></i>Collapse</button>
+</div>
+
 <div class="post-category">
 {% for single in site.data.english %}
-<div class="page-heading">
-    <ul class="collapsible popout" data-collapsible="accordion">
+<a id="{{ cate }}" class="section scrollspy"></a>
+<ul class="collapsible" data-collapsible="expandable">
       <li>
         <div class="collapsible-header favo">
            <!-- <a target="_blank" href="https://translate.google.cn/?sl=en&tl=zh-CN&text={{ single.word }}&op=translate">
             <i class="mdi mdi-volume-medium left indigo-text text-lighten-3"></i> </a>
             &nbsp;&nbsp;-->
-            <span>{{ single.phonetic }}</span>
-            &nbsp;
             <span>{{ single.word }}</span>
+            &nbsp;
+            <span>{{ single.phonetic }}</span>
         </div>
         <div class="collapsible-body">
             <p>Remark:  {{ single.remark }}</p>
@@ -30,7 +35,6 @@ permalink: /english/
         </div>
       </li>
     </ul>
-</div>
 {% endfor %}
 
 </div>
