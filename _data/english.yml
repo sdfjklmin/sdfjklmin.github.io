@@ -33,3 +33,115 @@
   define: 名词
   tags: mysql
 
+- word: auto increment
+  remark: 自增锁
+  phonetic:
+  usage:
+  define: 短语
+  tags: mysql
+
+- word: availability
+  remark: 可用性
+  phonetic: əˌvāləˈbilədē
+  usage: CAP
+  define: 名词
+  tags: distributed
+
+- word: bashrc
+  remark: user shell
+  phonetic:
+  usage: 可设置系统或用户的命令
+  define: 短语
+  tags: linux
+
+- word: binaries
+  remark: 二进制文件
+  phonetic:
+  usage: bin
+  define: 短语
+  tags: linux
+
+- word: blame
+  remark: 责备
+  phonetic: blām
+  usage: systemd-analyze blame(分析开启启动项)
+  define: 动词
+  tags: linux
+
+- word: composer
+  remark: 作曲家
+  phonetic: kəmˈpōzər
+  usage: composer cs-fix(检测规范代码)、composer commend
+  define: 名词
+  tags: composer
+
+- word: compression
+  remark: 压缩
+  phonetic: kəmˈpreSHən
+  usage: composer cs-fix(检测规范代码)、composer commend
+  define: 名词、compress(动词|kəmˈpreSH)
+  tags: mysql
+
+- word: concat
+  remark: 连接
+  phonetic:
+  usage: concat(field1,linkStr,field2)
+  define: 命令
+  tags: mysql
+
+- word: concurrent
+  remark: 并发
+  phonetic:
+  usage: connect current
+  define: 短语
+  tags: words
+
+- word: consistency
+  remark: 一致性
+  phonetic: kənˈsistənsē
+  usage: CAP ACID
+  define: 名词
+  tags: distributed、mysql
+
+- word: current
+  remark: 当前
+  phonetic: ˈkərənt
+  usage:
+  define: 名词
+  tags: words
+
+- word: DDL
+  remark: 数据定义语言
+  phonetic:
+  usage: Data Definition Language
+  define: 短语
+  tags: mysql
+
+- word: decide
+  remark: 决定
+  phonetic: dəˈsīd
+  usage:
+  define: 动词
+  tags: words
+
+- word: delivery
+  remark: 交货、分发
+  phonetic: dəˈliv(ə)rē
+  usage: CDN
+  define: 名词
+  tags: words
+
+- word: device
+  remark: 设备
+  phonetic: dəˈvīs
+  usage:
+  define: 名词
+  tags: words、linux
+
+- word: diagnose
+  remark: 诊断
+  phonetic: ˌdīəɡˈnōs
+  usage: composer diagnose(诊断composer问题)
+  define: 动词
+  tags: composer
+
