@@ -25,6 +25,11 @@ layout: default
         <!--平铺展示-->
         <p>{{ post.excerpt }}</p>
 
+        <!--内容标签-->
+        {% for tag in post.tags%}
+        <span class="chip">{{ tag }}</span>
+        {% endfor %}
+
         <!-- 简介弹框 -->
         <!--<button data-target="{{ post.id | remove: '%' | replace: '/', '_' }}" class="waves-effect waves-light btn modal-trigger" style="padding: 0 1.2rem;">
           overview
