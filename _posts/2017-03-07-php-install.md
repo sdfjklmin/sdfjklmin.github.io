@@ -2,7 +2,7 @@
 layout: post
 title:  "PHP安装"
 categories: PHP
-tags: Install
+tags: [install, php]
 ---
 * content
 {:toc}
