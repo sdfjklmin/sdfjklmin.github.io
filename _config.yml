@@ -1,3 +1,6 @@
+#Gemfile
+#gem 'nokogiri'
+
 # Site settings
 
 author: sdfjklmin
@@ -55,7 +58,7 @@ paginate: 7
 
 gems: [jekyll-paginate, jekyll-last-modified-at, jemoji]
 
-plugins: [jekyll-paginate,nokogiri]
+plugins: [jekyll-paginate]
 #
 # Custom
 #
