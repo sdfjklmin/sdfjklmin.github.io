@@ -56,7 +56,7 @@ sass:
 paginate: 7
 #paginate_path: 'page/:num'
 
-gems: [jekyll-paginate, jekyll-last-modified-at, jemoji]
+gems: [jekyll-paginate, jekyll-last-modified-at, jemoji, nokogiri]
 
 plugins: [jekyll-paginate]
 #
