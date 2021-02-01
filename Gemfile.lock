@@ -93,6 +93,7 @@ DEPENDENCIES
   jekyll-last-modified-at
   jekyll-paginate
   jemoji
+  nokogiri
 
 BUNDLED WITH
    2.1.4
