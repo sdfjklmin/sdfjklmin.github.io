@@ -58,7 +58,9 @@ paginate: 7
 
 gems: [jekyll-paginate, jekyll-last-modified-at, jemoji, nokogiri]
 
-plugins: [jekyll-paginate]
+plugins:
+  - jekyll-paginate
+  - nokogiri
 #
 # Custom
 #
