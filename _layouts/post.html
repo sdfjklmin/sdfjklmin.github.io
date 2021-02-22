@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="post-ribbon"></div>
 
-<div class="container post-container">
+<div id="post_content" class="container post-container">
   <div class="post-page card-panel z-depth-2">
   <div class="post-section">
 
@@ -50,3 +50,16 @@ layout: default
   {% endif %}
 
 </div>
+<!--<div id="post_need_pwd" style="display: none" class="container post-container">
+</div>-->
+<script>
+  //单一登录验证
+  if(window.localStorage){
+    //document.getElementById('post_content').setAttribute('hidden',true);
+    //document.getElementById('post_content').style.display = 'none';
+    //document.getElementById('post_content').innerHTML = '';
+    //document.getElementById('post_need_pwd').style.display = 'block';
+  }else{
+    alert('This browser does NOT support localStorage');
+  }
+</script>
