@@ -67,22 +67,85 @@ MySQL 事务主要用于处理操作量大，复杂度高的数据。
       自动提交: 如果 autocommit 开启，则每个SQL语句将自己形成一个事务。
       非自动提交: 需要执行多语句事务 START TRANSACTION 或 BEGIN 语句，并用它结束 COMMIT或 ROLLBACK 声明。
 
-##### Read-Uncommitted(读-未提交,有脏读)
-    数据: name = test , A事物更新 name = test2,同时B事物也起了,B执行查询name = test2,
-    若A回滚,实际数据为 name = test ,而B却返回了 name = test2 ,这就称之为脏读.
+##### Read-Uncommitted(读-未提交，有脏读)
+
+数据: name = test， A事物更新 name = test2，同时B事物开启，B执行查询name = test2，
+
+若A回滚，实际数据为 name = test，而B却返回了 name = test2，这就称之为脏读.
+
+Read(B事物读取)-Uncommitted(A事物未提交成功的操作[更新]数据): 有脏读。 
+
+    TimeLine                   原数据 name = test
+
+    A事物
+     ↓
+    start
+     ↓
+    执行更新
+     ↓
+    name = test2    此时     B事物 → start → 查询 -> name = test2
+     ↓                                                  ↓  
+    回滚                                          返回(name = test2)
+
+    A事物并没有修改成功，但B事物已经返回 name = test2，出现了脏读 
 
 ##### Read-Committed(读-已提交,不可重复读)
-    一个事务只能读到另一个事务修改的已经提交了事务的数据
-    A隐式提交了事物,B查询 name = test2,这是没有问题的,但B还没有结束,A中执行更新 name = test3,
-    B执行查询 name = test3,这种称之为 不可重复读.
+
+一个事务只能读到另一个事务修改的已经提交了事务的数据。
+
+A隐式提交了事物，B查询 name = test2，这是没有问题的。但B还没有结束，A中执行更新 name = test3，
+
+B执行查询 name = test3，这种称之为 不可重复读。
+
+Read(B事物读取)-Committed(A事物提交成功的操作[更新]数据): 不可重复读，Commit 后数据发生改变。
+
+    TimeLine                原数据 name = test
+
+    B事物                    A事物     
+     ↓                        ↓
+    start                   start → 执行 name = test2 → commit.(At1)
+     ↓
+    查询(name = test2)                         
+     ↓
+    其它操作                 A事物
+     ↓                       ↓      
+    其它操作                 start → 执行 name = test3 → commit.(At2)
+     ↓  
+    查询(name = test3)
+     ↓
+    提交
+
+    在B事物的时间线中，A事物对数据进行了两次操作，B事物进行了两次查询，但只能读取到操作后的数据。
+    数据会跟着事物修改而改变。
 
 ##### Repeatable-Read(可重复读)
-    第一次读取的数据，即使别的事务修改的这个值，
-    这个事务再读取这条数据的时候还是和第一次获取的一样，不会随着别的事务的修改而改变
-    原始数据 name = test, 开启A,B两个事物, A修改 name = test2,同时B事物查询 name = test,
-    不管事物A是否提交,在B事物没有提交之前,这条数据对B来说一直都是没有发生改变的,是可以重复的被读到
+
+第一次读取的数据，即使别的事务修改的这个值，这个事务再读取这条数据的时候还是和第一次获取的一样，不会随着别的事务的修改而改变。
+
+原始数据 name = test， 开启A、B两个事物， A修改 name = test2，同时B事物查询 name = test,
+
+不管事物A是否提交，在B事物没有提交之前，这条数据对B来说一直都是没有发生改变的，是可以重复的被读到。
+
+    TimeLine                原数据 name = test
+
+    B事物                    A事物     
+     ↓                        ↓
+    start                   start
+     ↓                        ↓
+    查询(name = test)       修改(name = test2)  → 提交              
+     ↓                      
+    再次查询(name = test)     
+     ↓  
+    查询(name = test)
+     ↓
+    提交
+
+    在B事物的时间线中，不管A事物执行什么操作，或者执行回滚或提交。B事物的值始终为第一次获取的值。
+    数据不会跟着事物修改而改变。
 
 ##### Serializable(串行化)
-    只能进行读-读并发。只要有一个事务操作一条记录的写，那么其他要访问这条记录的事务都得等着
-    一般没人用串行化，性能比较低，常用的是已提交读和可重复读。
+
+只能进行读-读并发。只要有一个事务操作一条记录的写，那么其他要访问这条记录的事务都得等着
+
+一般没人用串行化，性能比较低，常用的是已提交读和可重复读。
 
