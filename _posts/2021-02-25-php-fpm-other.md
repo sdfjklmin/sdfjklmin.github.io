@@ -158,7 +158,71 @@ CGI、FastCGI、PHP-FPM、Reactor、I/O复用模型
            |         
     nginx 将结果通过 http 返回给浏览器
 
+#### PHP-FPM + Nginx 
+
+> FPM 是 Master/Worker 模式，启动一个 Master 进程监听来自 Nginx 的请求，再 fork 多个 Worker 进程处理请求。
+> 
+> 每个 Worker 进程只能处理一个请求，单一进程的生命周期参照 `PHP生命周期`。
+> 
+> 多进程模型是依赖进程数来解决并发问题，一个进程只能处理一个连接，当启动大量进程，进程调度消耗可能占 CPU 的百分之几十甚至 100%，比如 C10K 问题，多进程模型就力不从心了。
+
+#### Swoole
+
+运行图：
+
+![运行图](/assets/image/Swoole_Two.svg)
+
+> 搜索所得，并非自己总结。
+> 
+> Swoole 采用的也是 Master/Worker 模式，不同的是 Master 进程有多个 Reactor 线程，Master 只是一个事件发生器，负责监听 Socket 句柄的事件变化。
+> 
+> Worker 以多进程的方式运行，接收来自 Reactor 线程的请求，并执行回调函数（PHP 编写的）。
+> 
+> 启动 Master 进程的流程大致是：
+>
+>   1. 初始化模块。
+> 
+>   2. 初始化请求。因为 swoole 需要通过 cli 的方式运行，所以初始化请求时，不会初始化 PHP 的全局变量，如 $_SERVER, $_POST, $_GET 等。
+> 
+>   3. 执行 PHP 脚本。包括词法、语法分析，变量、函数、类的初始化等，Master 进入监听状态，并不会结束进程。
+> 
+> Swoole 加速的原理
+>
+>   1. 由 Reactor（epoll 的 IO 复用方式）负责监听 Socket 句柄的事件变化，解决高并发问题。
+> 
+>   2. 通过内存常驻的方式节省 PHP 代码初始化的时间，在使用笨重的框架时，用 swoole 加速效果是非常明显的。
+> 
+> 对比不同
+> 
+>     PHP-FPM
+> 
+>       1. Master 主进程 / Worker 多进程模式。
+> 
+>       2. 启动 Master，通过 FastCGI 协议监听来自 Nginx 传输的请求。
+> 
+>       3. 每个 Worker 进程只对应一个连接，用于执行完整的 PHP 代码。
+> 
+>       4. PHP 代码执行完毕，占用的内存会全部销毁，下一次请求需要重新再进行初始化等各种繁琐的操作。
+> 
+>       5. 只用于 HTTP Server。
+> 
+>     Swoole
+> 
+>       1. Master 主进程（由多个 Reactor 线程组成）/ Worker 多进程（或多线程）模式
+> 
+>       2. 启动 Master，初始化 PHP 代码，由 Reactor 监听 Socket 句柄的事件变化。
+> 
+>       3. Reactor 主线程负责子多线程的均衡问题，Manager 进程管理 Worker 多进程，包括 TaskWorker 的进程。
+> 
+>       4. 每个 Worker 接受来自 Reactor 的请求，只需要执行回调函数部分的 PHP 代码。
+> 
+>       5. 只在 Master 启动时执行一遍 PHP 初始化代码，Master 进入监听状态，并不会结束进程。
+> 
+>       6. 不仅可以用于 HTTP Server，还可以建立 TCP 连接、WebSocket 连接。
+
 #### I/O多路复用机制
+
+![epoll](/assets/image/epoll.svg)
 
     I/O多路复用 : 每个进程/线程同时处理 多个连接(I/O多路复用)
 
