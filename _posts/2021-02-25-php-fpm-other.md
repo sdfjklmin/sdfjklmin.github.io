@@ -64,8 +64,8 @@ CGI、FastCGI、PHP-FPM、Reactor、I/O复用模型
         |         ←   (干活真开心:)  ←     (php-cgi1回来了)    
 
 #### php-fpm(PHP内置的一种fast-cgi)
-    php-fpm即php-Fastcgi Process Manager.
-    php-fpm是 FastCGI 的实现，并提供了进程管理的功能。
+    PHP-FPM 即 PHP-Fastcgi Process Manager.
+    PHP-FPM 是 FastCGI 的实现，并提供了进程管理的功能。
     进程包含 master 进程和 worker 进程两种进程。
     master 进程只有一个，负责监听端口，接收来自 Web Server 的请求，
     而 worker 进程则一般有多个(具体数量根据实际需要配置)，
