@@ -170,7 +170,7 @@ CGI、FastCGI、PHP-FPM、Reactor、I/O复用模型
 
 运行图：
 
-![运行图](/assets/image/Swoole_Two.svg)
+![运行图](/assets/image/Swoole_Three.svg)
 
 > 搜索所得，并非自己总结。
 > 
