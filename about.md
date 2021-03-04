@@ -1,8 +1,9 @@
 ---
 layout: page
-
+title: ''
 permalink: /about/
 ---
+
 ## Hello, My Blog! 风尘仆仆，斯文以待！
 
 #### Personal information
